@@ -34,10 +34,20 @@ symfony serve
 
 # List maker
 
+#clean all
+sh clean.sh
 php bin/console make:ddd-full Wallet --force false
 php bin/console make:ddd-command Wallet --force false
 php bin/console make:ddd-query Wallet --force false
 php bin/console make:ddd-vo Wallet --force false
+
+#migrate
+
+task local:dd
+
+#or for docker
+
+task dd
 
 ```
 Api docs
