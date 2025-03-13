@@ -1,0 +1,9 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+Wallets_routes:
+    resource: '../src/Core/Presentation/Controller/'
+    type: attribute
