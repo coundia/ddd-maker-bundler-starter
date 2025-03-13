@@ -52,3 +52,6 @@ task dd
 ```
 Api docs
 [http://127.0.0.1:8000/api/docs](http://127.0.0.1:8000/api/docs)
+
+# For more infos see
+[usage.md](doc/usage.md)[doc/usage.md](doc/usage.md)
