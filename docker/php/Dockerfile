@@ -1,6 +1,7 @@
+# Base image avec PHP 8.3 et FPM
 FROM php:8.3-fpm
 
-# Mise à jour et installation des dépendances
+# Mise à jour et installation des dépendances système
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libicu-dev \
     libpq-dev \
@@ -17,3 +18,14 @@ WORKDIR /var/www
 
 # Installation de Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Copie du projet dans le conteneur
+COPY . .
+
+
+# Définition de la commande de démarrage
+CMD if [ -f "bin/console" ]; then \
+        php bin/console cache:clear && \
+        php bin/console doctrine:migrations:migrate --no-interaction; \
+    fi && \
+    php-fpm
